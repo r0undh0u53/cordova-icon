@@ -17,37 +17,36 @@ var getPlatforms = function (projectName) {
     platforms.push({
         name : 'ios',
         // TODO: use async fs.exists
-        isAdded : fs.existsSync('platforms/ios'),
-        iconsPath : 'platforms/ios/' + projectName + '/Resources/icons/',
+        iconsPath : 'res/icon/ios/',
+        isAdded : fs.existsSync('res/icon/ios'),
         icons : [
-            { name : 'icon-40.png',       size : 40  },
-            { name : 'icon-40@2x.png',    size : 80  },
-            { name : 'icon-50.png',       size : 50  },
-            { name : 'icon-50@2x.png',    size : 100 },
-            { name : 'icon-60.png',       size : 60  },
-            { name : 'icon-60@2x.png',    size : 120 },
-            { name : 'icon-60@3x.png',    size : 180 },
+            { name : 'icon-57.png',       size : 57  },
             { name : 'icon-72.png',       size : 72  },
-            { name : 'icon-72@2x.png',    size : 144 },
-            { name : 'icon-76.png',       size : 76  },
-            { name : 'icon-76@2x.png',    size : 152 },
-            { name : 'icon-small.png',    size : 29  },
-            { name : 'icon-small@2x.png', size : 58  },
-            { name : 'icon.png',          size : 57  },
-            { name : 'icon@2x.png',       size : 114 },
+            { name : 'icon-57-2x.png',    size : 114 },
+            { name : 'icon-72-2x.png',    size : 144 },
+
+            { name : 'icon-29.png',       size : 29  },
+            { name : 'icon-58.png',       size : 58  },
+            { name : 'icon-48.png',       size : 48  },
+            { name : 'icon-48-2x.png',    size : 96  },
+
+            { name : 'icon-320.png',      size : 320 },
+            { name : 'icon-320-2x.png',   size : 640 },
+            { name : 'icon-512.png',      size : 512 },
+            { name : 'icon-1024.png',     size : 1024},
         ]
     });
     platforms.push({
         name : 'android',
-        iconsPath : 'platforms/android/res/',
-        isAdded : fs.existsSync('platforms/android'),
+        iconsPath : 'res/icon/android/',
+        isAdded : fs.existsSync('res/icon/android'),
         icons : [
-            { name : 'drawable/icon.png',       size : 96 },
-            { name : 'drawable-hdpi/icon.png',  size : 72 },
-            { name : 'drawable-ldpi/icon.png',  size : 36 },
-            { name : 'drawable-mdpi/icon.png',  size : 48 },
-            { name : 'drawable-xhdpi/icon.png', size : 96 },
-            { name : 'drawable-xxhdpi/icon.png', size : 144 },
+            { name : 'icon-36-ldpi.png',     size : 36  },
+            { name : 'icon-48-mdpi.png',     size : 48  },
+            { name : 'icon-72-hdpi.png',     size : 72  },
+            { name : 'icon-96-xhdpi.png',    size : 96  },
+            { name : 'icon-144-xxhdpi.png',  size : 144 },
+            { name : 'icon-192-xxxhdpi.png', size : 192 },
         ]
     });
     // TODO: add all platforms
@@ -62,7 +61,7 @@ var getPlatforms = function (projectName) {
  */
 var settings = {};
 settings.CONFIG_FILE = 'config.xml';
-settings.ICON_FILE   = 'icon.png';
+settings.ICON_FILE   = 'icon-1024.png';
 
 /**
  * @var {Object} console utils
@@ -156,7 +155,7 @@ var generateIconsForPlatform = function (platform) {
 
 /**
  * Goes over all the platforms and triggers icon generation
- * 
+ *
  * @param  {Array} platforms
  * @return {Promise}
  */
